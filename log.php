@@ -24,7 +24,6 @@ while($count<strlen($id2))
     }
     
     
-    
     else
     {
            

@@ -664,6 +664,58 @@ $conn = new mysqli ($host,$dbusername,$dbpassword,$dbname);
         
           
       </div>
+      
+        <div class  = "vidz_div">
+     
+      
+      <div id = "ident"  style="background-color:#303952 ; color:white ; ">  videos </div>
+             
+             <?php 
+             
+             
+             
+
+
+
+$host = "localhost";
+$dbusername = "root";
+$dbpassword ="";
+$dbname="fit";
+
+        
+$conn = new mysqli ($host,$dbusername,$dbpassword,$dbname);
+             
+$id = $_SESSION['id'];
+
+
+            
+         
+        $sql0 = "SELECT trainer_id FROM trainee where school_id = $id ";
+        $result0 = mysqli_query ($conn,$sql0);
+
+         $row0 = mysqli_fetch_array($result0); 
+            
+            $id = $row0['trainer_id'];
+        $sql = "SELECT * FROM video where ins_id = $id  ORDER BY id DESC ";
+        $result = mysqli_query ($conn,$sql);
+
+$re = 1;
+
+
+        while ( $row = mysqli_fetch_array($result) )
+        { 
+         echo '  
+             <div id  = "vid"> <a href="upload/'.$row['name'].'"> video '.$re++.' </a>  </div> ';
+                
+        
+        }
+         
+             ?>
+             
+             
+             
+      </div>
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

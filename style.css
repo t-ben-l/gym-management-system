@@ -24,6 +24,20 @@
               border-radius: 5px;
               
           }
+#upvid 
+{
+
+left: 74%;
+    top: 3%;
+    width: 15%;
+    height: 18%;
+    background-color: #232E4D;
+    color: white;
+    border: 1px solid red ;
+    border-radius: 2px;
+    padding: 5px;
+    
+}
       
             .center {
               position: absolute;
@@ -54,7 +68,7 @@
               
               position: relative;
               width: 80%;
-              height: 8%;
+              height: auto;
               left: 10%;
               text-align: center;
               border: 1px solid red;
@@ -206,10 +220,7 @@
     padding-left: 10px;
     padding-right: 10px;
 }
-#tab2
-{
-    display: none;
-}
+
 
 #select
 {
@@ -226,4 +237,32 @@
     display: none;
     
 }
+
+
+
+.vidz_div {
+                 position: absolute;
+              width: 7%;
+              height: 70%;
+              left: 0.5%;
+              top: 22%;
+              background-color: ;
+              border: 1px solid blue;
+              
+          }
+
+#vid
+
+{
+    position: relative;
+    margin: 5px;
+    height: 10%;
+    width: 95%;
+    background-color: darkblue;
+    text-align: center;
+    padding: inherit;
+    color: white;
+    overflow-y: scroll;
+}
+      
       </style>

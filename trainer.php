@@ -47,6 +47,7 @@ if ($numrows == 0 )
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+     
       <link href="style.css" rel="stylesheet"> 
       
       
@@ -121,6 +122,31 @@ if ($numrows == 0 )
       
       
       <div class = "pic" style = "border: 1px solid white;"> <img src="user2.png"> </div>
+      <div class="pic" id ="upvid">
+          
+          
+          <?php
+          
+          echo '
+          <form action="upload_file.php?id='.$id.'" method="post"   enctype="multipart/form-data"> ';
+          
+          ?>
+          
+          
+              
+              
+              
+              upload todays video here 
+              
+              
+              <input type="file" name="vid" >  <button name="submit"> upload </button> </form> 
+      
+      
+      
+      </div>
+     
+      
+    
 
       <div class = "center" >
       
@@ -230,7 +256,7 @@ echo '
           <table class="table table-dark" id ="tb1" >
   <thead>
     <tr>
-      <th scope="col " style="color:yellow">'.$name.'   <button   onclick="tb(2)" > next </button> </th>
+      <th scope="col " style="color:yellow">'.$name.'   <button   onclick="tb(2)" > next b </button> </th>
       <th scope="col">monday</th>
       <th scope="col">tuesday</th>
       <th scope="col">wednesday</th>
@@ -477,7 +503,7 @@ echo '
                        
                    {
                        
-                       echo ' <div class ="popp"  id  = "ident"  style = "height: 30%;" > no studet assigned <button   onclick="tb(2)" > check another slot here </button>  </div>'  ;                    
+                     //  echo ' <div class ="popp"  id  = "ident"  style = "height: 30%;" > no studet assigned <button   onclick="tb(2)" > check another slot here </button>  </div>'  ;                    
                    }
                    
                           $sql = "SELECT * FROM trainer where work_id = $idt ";
@@ -508,7 +534,7 @@ echo '
 
 
          
-          <table class="table table-dark" id ="tb2" >
+          <table class="table table-dark" style="display: block"  id ="tb2" >
   <thead>
     <tr>
       <th scope="col " style="color:yellow">'.$name.'    <button  onclick="tb(3)" > next</button> </th>
@@ -759,7 +785,7 @@ echo '
                    {
                        
                        
-                       echo ' <div class ="popp" id  = "ident" style = "height: 30%;"  > no studet assigned <button style="z-index: 1;"  onclick="tb(3)" > check another slot here </button>  </div>'  ;  
+                    //   echo ' <div class ="popp" id  = "ident" style = "height: 30%;"  > no studet assigned <button style="z-index: 1;"  onclick="tb(3)" > check another slot here </button>  </div>'  ;  
                        
                    }
                    
@@ -791,7 +817,7 @@ echo '
 
 
          
-          <table class="table table-dark" id ="tb3" >
+          <table class="table table-dark"  style="display: block"  id ="tb3" >
   <thead>
     <tr>
       <th scope="col " style="color:yellow">'.$name.'    <button  onclick="tb(1)" > next</button> </th>
@@ -1042,7 +1068,7 @@ echo '
                    {
                        
                        
-                       echo ' <div class ="popp" id  = "ident"  style = "height: 30%;" > no studet assigned <button   onclick="tb(1)" > check another slot here </button>  </div>'  ;  
+                   //    echo ' <div class ="popp" id  = "ident"  style = "height: 30%;" > no studet assigned <button   onclick="tb(1)" > check another slot here </button>  </div>'  ;  
                        
                    }
                }
@@ -1760,6 +1786,50 @@ $conn = new mysqli ($host,$dbusername,$dbpassword,$dbname);
         
           
       </div>
+      
+         <div class  = "vidz_div">
+     
+      
+      <div id = "ident"  style="background-color:#303952 ; color:white ; "> Your videos </div>
+             
+             <?php 
+             
+             
+             
+
+
+
+$host = "localhost";
+$dbusername = "root";
+$dbpassword ="";
+$dbname="fit";
+
+        
+$conn = new mysqli ($host,$dbusername,$dbpassword,$dbname);
+             
+$id = $_SESSION['id'];
+
+
+        $sql = "SELECT * FROM video where ins_id = $id  ORDER BY id DESC ";
+        $result = mysqli_query ($conn,$sql);
+
+$re = 1;
+
+
+        while ( $row = mysqli_fetch_array($result) )
+        { 
+         echo '  
+             <div id  = "vid"> <a href="upload/'.$row['name'].'"> video '.$re++.' mm</a>  </div> ';
+                
+        
+        }
+         
+             ?>
+             
+             
+             
+      </div>
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
